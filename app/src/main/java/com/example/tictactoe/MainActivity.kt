@@ -14,11 +14,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     var PLAYER =true
     var TURN_COUNT = 0
-    var boardStatus = Array(3) { IntArray(3) }
+    var boardStatus = Array(3){ IntArray(3)}
 
     lateinit var board: Array<Array<Button>>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun initializeBoardStatus() {
+    private fun initializeBoardStatus(){
         for (i in 0..2){
             for (j in 0..2){
                 boardStatus[i][j] = -1
@@ -110,6 +110,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun checkWinner() {
+
 //        Horizontal Rows
 
         for(i in 0..2){
@@ -139,6 +140,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
 //        first Diagonal
+
         if(boardStatus[0][0]==boardStatus[1][1] && boardStatus[0][0]==boardStatus[2][2]){
             if(boardStatus[0][0]==1){
                 updateDisplay("Player X Winner")
@@ -148,6 +150,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
 //        first Diagonal
+
                 if(boardStatus[0][2]==boardStatus[1][1] && boardStatus[0][2]==boardStatus[2][0]){
                     if(boardStatus[0][2]==1){
                         updateDisplay("Player X Winner")
@@ -175,7 +178,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun updateValue(row: Int, col: Int, player: Boolean) {
+    private fun updateValue(row: Int, col: Int, player: Boolean){
 
         val text =if(player) "X" else "O"
         val value = if(player) 1 else 0
